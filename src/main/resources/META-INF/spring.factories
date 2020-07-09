@@ -1,0 +1,2 @@
+org.springframework.boot.SpringApplicationRunListener=com.lww.mina.manager.ConfStartCollectSendManager
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.lww.mina.config.MinaClientConfig
