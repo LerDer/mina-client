@@ -5,7 +5,7 @@ import static com.lww.mina.util.Const.CONF;
 import com.alibaba.fastjson.JSONObject;
 import com.lww.mina.dto.MessageDO;
 import com.lww.mina.event.ConfChangeEvent;
-import com.lww.mina.manager.ConfStartCollectSendManager;
+import com.lww.mina.inject.MyInjectProcessor;
 import com.lww.mina.util.Const;
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -76,7 +76,7 @@ public class ConfChangeReceiveEventListener {
                 }
             }
         }
-        Map<String, Object> configs = ConfStartCollectSendManager.configs;
+        Map<String, Object> configs = MyInjectProcessor.configs;
         for (Entry<String, Object> entry : configs.entrySet()) {
             String nowValue = environment.getProperty(entry.getKey());
             log.info("Environment 中 ConfChangeReceiveEventListener_changeValue_propertity:{}, nowValue:{}", entry.getKey(), nowValue);

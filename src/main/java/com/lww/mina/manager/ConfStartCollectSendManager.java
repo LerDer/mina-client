@@ -1,3 +1,4 @@
+/*
 package com.lww.mina.manager;
 
 import com.lww.mina.dto.MessageDO;
@@ -18,7 +19,7 @@ import org.springframework.core.env.MutablePropertySources;
 /**
  * @author lww
  * @date 2020-07-09 11:33
- */
+ *//*
 @Slf4j
 public class ConfStartCollectSendManager implements SpringApplicationRunListener {
 
@@ -65,3 +66,4 @@ public class ConfStartCollectSendManager implements SpringApplicationRunListener
         }
     }
 }
+*/
