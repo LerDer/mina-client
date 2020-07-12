@@ -100,7 +100,7 @@ public class MinaClientConfig {
 
     @Bean
     public InetSocketAddress inetSocketAddress() {
-        return new InetSocketAddress(config.getServerAddress(), config.getServerPort());
+        return new InetSocketAddress(config.getServerAddress(), config.getMinaPort());
     }
 
     /**

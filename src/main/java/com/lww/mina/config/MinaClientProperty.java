@@ -12,9 +12,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MinaClientProperty {
 
     /**
-     * 服务器监听端口，默认 9123
+     * 服务器监听端口，默认 9123 Mian监听端口
      */
-    private Integer serverPort = 9123;
+    private Integer minaPort = 9123;
+
+    /**
+     * http端口，默认8080
+     */
+    private Integer port = 8080;
 
     /**
      * 服务器ip地址，默认 127.0.0.1
@@ -46,6 +51,11 @@ public class MinaClientProperty {
      */
     private String env = "local";
 
+    /**
+     * server端 server.servlet.context-path 的值
+     */
+    private String serverPath;
+
     public String getEnv() {
         return env;
     }
@@ -62,12 +72,20 @@ public class MinaClientProperty {
         this.projectName = projectName;
     }
 
-    public Integer getServerPort() {
-        return serverPort;
+    public Integer getMinaPort() {
+        return minaPort;
     }
 
-    public void setServerPort(Integer serverPort) {
-        this.serverPort = serverPort;
+    public void setMinaPort(Integer minaPort) {
+        this.minaPort = minaPort;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
     }
 
     public String getServerAddress() {
@@ -100,5 +118,13 @@ public class MinaClientProperty {
 
     public void setTimeout(Long timeout) {
         this.timeout = timeout;
+    }
+
+    public String getServerPath() {
+        return serverPath;
+    }
+
+    public void setServerPath(String serverPath) {
+        this.serverPath = serverPath;
     }
 }
