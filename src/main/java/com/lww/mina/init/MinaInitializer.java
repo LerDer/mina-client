@@ -64,7 +64,7 @@ public class MinaInitializer implements ApplicationContextInitializer<Configurab
         final String address = StringUtils.isNotBlank(environment.getProperty(SERVER_ADDRESS)) ? environment.getProperty(SERVER_ADDRESS) : "127.0.0.1";
         final String projectName = environment.getProperty(PROJECT_NAME);
         final String remoteAddr = address.trim() + ":" + port.trim();
-        //发消息
+        //通过http请求获取配置，修改配置的值
         for (Entry<String, Object> entry : configs.entrySet()) {
             String value = entry.getValue().toString();
             String param = "projectName=" + projectName + "&env=" + env + "&propertyValue=" + value;
