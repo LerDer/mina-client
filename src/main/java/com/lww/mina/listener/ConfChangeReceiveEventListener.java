@@ -5,7 +5,7 @@ import static com.lww.mina.util.Const.CONF;
 import com.alibaba.fastjson.JSONObject;
 import com.lww.mina.dto.MessageDO;
 import com.lww.mina.event.ConfChangeEvent;
-import com.lww.mina.inject.MyInjectProcessor;
+import com.lww.mina.init.MinaInitializer;
 import com.lww.mina.util.Const;
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -69,6 +69,8 @@ public class ConfChangeReceiveEventListener {
                             log.info("原始值 ConfChangeReceiveEventListener_changeValue_replace:{}, property:{}", replace, property);
                             //反射修改已经注入到对象中的值
                             field.set(value, message.getConfigValue());
+
+
                             Properties props = new Properties();
                             props.put(replace, message.getConfigValue());
                             //修改 Environment 中的值，否则从 Environment 中获取，还是原来的值
@@ -78,7 +80,7 @@ public class ConfChangeReceiveEventListener {
                 }
             }
         }
-        Map<String, Object> configs = MyInjectProcessor.configs;
+        Map<String, Object> configs = MinaInitializer.configs;
         for (Entry<String, Object> entry : configs.entrySet()) {
             String nowValue = environment.getProperty(entry.getKey());
             log.info("Environment 中 ConfChangeReceiveEventListener_changeValue_propertity:{}, nowValue:{}", entry.getKey(), nowValue);

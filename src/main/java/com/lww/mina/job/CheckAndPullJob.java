@@ -3,7 +3,7 @@ package com.lww.mina.job;
 import com.lww.mina.config.MinaClientProperty;
 import com.lww.mina.dto.MessageDO;
 import com.lww.mina.event.ConfSendEvent;
-import com.lww.mina.inject.MyInjectProcessor;
+import com.lww.mina.init.MinaInitializer;
 import com.lww.mina.util.CommonUtil;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -31,7 +31,7 @@ public class CheckAndPullJob {
     public void checkAndPull() {
         long now = System.currentTimeMillis();
         log.info("CheckAndPullJob_checkAndPull_start_time:{}", CommonUtil.getNowTimeString());
-        Map<String, Object> configs = MyInjectProcessor.configs;
+        Map<String, Object> configs = MinaInitializer.configs;
         for (Entry<String, Object> entry : configs.entrySet()) {
             log.info("发布事件 CheckAndPullJob_checkAndPull_entry:{}", entry.getValue().toString());
             MessageDO message = new MessageDO();

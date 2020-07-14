@@ -1,6 +1,4 @@
-package com.lww.mina.inject;
-
-import static com.lww.mina.util.Const.CONF;
+package com.lww.mina.init;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lww.mina.dto.MessageDO;
@@ -24,9 +22,9 @@ import org.springframework.util.Assert;
  * 在bean创建注入之前，从服务器获取配置信息，如数据库等配置信息
  *
  * @author lww
- * @date 2020-07-10 16:50
+ * @date 2020-07-11 16:50
  */
-public class MyInjectProcessor implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+public class MinaInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     private static final String PROPERTY_SOURCE_NAME = "applicationConfig";
 
@@ -76,7 +74,7 @@ public class MyInjectProcessor implements ApplicationContextInitializer<Configur
                 Properties props = new Properties();
                 props.put(entry.getKey(), messageDO.getConfigValue());
                 //修改 Environment 中的值，否则从 Environment 中获取，还是原来的值
-                environment.getPropertySources().addFirst(new PropertiesPropertySource(CONF, props));
+                environment.getPropertySources().addFirst(new PropertiesPropertySource(Const.CONF, props));
             } else {
                 Assert.isTrue(false, "获取配置信息失败！");
             }
