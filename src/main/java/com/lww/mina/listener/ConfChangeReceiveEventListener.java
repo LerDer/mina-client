@@ -22,6 +22,8 @@ import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.stereotype.Component;
 
 /**
+ * 使用反射修改注入到对象中的值，修改环境中的值
+ *
  * @author lww
  * @date 2020-07-09 11:27
  */
